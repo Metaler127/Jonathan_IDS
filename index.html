@@ -25,6 +25,21 @@
       ctx.fillRect(180, 180, 100, 100);
       ctx.fillStyle = "rgba(48, 179, 224, 0.5)";
       ctx.fillRect(100, 100, 100, 100);
+
+      ctx.strokeRect(280, 280, 100, 100);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 5;
+      ctx.strokeRect(340, 340, 100, 100);
+
+      ctx.fillStyle = "rgba(163, 48, 224, 0.5)";
+      ctx.strokeStyle = "rgb(91, 29, 125 )";
+      ctx.beginPath();
+      ctx.moveTo(50, 130);
+      ctx.lineTo(20, 450);
+      ctx.lineTo(250, 450);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fill();
     </script>
   </body>
 </html>

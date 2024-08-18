@@ -40,6 +40,19 @@
       ctx.closePath();
       ctx.stroke();
       ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(300, 75, 50, 0, 2 * Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "rgb(233, 46, 145 )";
+      ctx.fillStyle = "rgba(0, 164, 255)"
+      ctx.arc(350, 75, 50, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.stroke();
+
     </script>
   </body>
 </html>

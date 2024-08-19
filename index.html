@@ -42,17 +42,23 @@
       ctx.fill();
 
       ctx.beginPath();
-      ctx.arc(300, 75, 50, 0, 2 * Math.PI);
+      ctx.arc(400, 225, 50, 0, 2 * Math.PI);
       ctx.stroke();
       ctx.closePath();
 
       ctx.beginPath();
       ctx.strokeStyle = "rgb(233, 46, 145 )";
-      ctx.fillStyle = "rgba(0, 164, 255)"
-      ctx.arc(350, 75, 50, 0, 2 * Math.PI);
+      ctx.fillStyle = "rgba(0, 164, 255, 0.7)";
+      ctx.arc(350, 75, 70, 0, 2 * Math.PI);
       ctx.fill();
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.strokeStyle = "rgb(105, 68, 241 )";
+      ctx.fillStyle = "rgba(226, 21, 123, 0.7)";
+      ctx.arc(400, 215, 45, 0.9, 0.7 * Math.PI);
+      ctx.fill();
+      ctx.stroke();
     </script>
   </body>
 </html>

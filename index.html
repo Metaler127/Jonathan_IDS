@@ -78,7 +78,11 @@
       ctx.fillStyle = grdR;
       ctx.fillRect(400, 300, 200, 100);
 
-
+      var img = new Image();
+      img.src = "spiderman.png";
+      img.onload = function () {
+        ctx.drawImage(img, 450, 60, 100, 100);
+      };
     </script>
   </body>
 </html>

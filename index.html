@@ -63,6 +63,15 @@
       ctx.fillText("Hola mundo", 160, 30);
       ctx.lineWidth = 1;
       ctx.strokeText("Hola mundito", 150, 50);
+
+      const grd = ctx.createLinearGradient(400, 0, 600, 0);
+      grd.addColorStop(0, "black");
+      grd.addColorStop(0.5, "rgb(46, 219, 233)");
+      grd.addColorStop(1, "rgb(46, 83, 233)");
+      ctx.fillStyle = grd;
+      ctx.fillRect(400, 400, 200, 100);
+
+
     </script>
   </body>
 </html>

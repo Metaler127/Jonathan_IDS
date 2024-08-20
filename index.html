@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <canvas id="myCanvas" width="600" height="500"></canvas>
     <script>
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
@@ -59,6 +59,10 @@
       ctx.arc(400, 215, 45, 0.9, 0.7 * Math.PI);
       ctx.fill();
       ctx.stroke();
+      ctx.font = "20px Georgia";
+      ctx.fillText("Hola mundo", 160, 30);
+      ctx.lineWidth = 1;
+      ctx.strokeText("Hola mundito", 150, 50);
     </script>
   </body>
 </html>

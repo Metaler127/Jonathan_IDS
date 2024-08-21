@@ -58,6 +58,12 @@
             figura = 1;
           }
         });
+
+        document
+        .getElementById("myCanvas")
+        .addEventListener("mousemove", function (e) {
+          ctx.fillRect(e.x - 4, e.y - 4, 8, 8);
+        });
     </script>
   </body>
 </html>

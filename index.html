@@ -22,14 +22,25 @@
       document
         .getElementById("myCanvas")
         .addEventListener("mousedown", function (e) {
-          console.log(e.x, e.y);
-
           ctx.beginPath();
-          ctx.strokeStyle = "rgb(233, 46, 145 )";
-          ctx.fillStyle = "rgba(0, 164, 255, 0.7)";
           ctx.arc(e.x, e.y, 70, 0, 2 * Math.PI);
           ctx.fill();
           ctx.stroke();
+        });
+
+      document
+        .getElementById("myCanvas")
+        .addEventListener("mouseover", function (e) {
+          function getRandomColor() {
+            var trans = "0.5";
+            var color = "rgba(";
+            for (var i = 0; i < 3; i++) {
+              color += Math.floor(Math.random() * 255) + ",";
+            }
+            color += trans + ")";
+            return color;
+          }
+          ctx.fillStyle = getRandomColor();
         });
     </script>
   </body>

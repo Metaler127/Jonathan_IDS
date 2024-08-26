@@ -18,7 +18,11 @@
     <script>
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
-      var figura = 1;
+
+      var x = 40;
+      var y = 40;
+
+      /*var figura = 1;
       var presionado = 2;
 
       document
@@ -73,7 +77,31 @@
           if (presionado == 1) {
             ctx.fillRect(e.x - 4, e.y - 4, 8, 8);
           }
+        });*/
+
+        
+
+        document
+        .addEventListener("keydown", (event) => {
+          console.log(event.key)
+          
+          ctx.fillStyle= "white";
+          ctx.fillRect(0, 0, 600, 500);
+          ctx.fillStyle = "blue";
+          ctx.fillRect(x, y, 50, 50);
+
+
+          if (event.key == "a" || event.key == "A") {
+            x -= 5;
+          }else if (event.key == "d" || event.key == "D"){
+            x += 5;
+          }else if (event.key == "s" || event.key == "S"){
+            y += 5;
+          }else if (event.key == "w" || event.key == "W"){
+            y -= 5;
+          }
         });
+
     </script>
   </body>
 </html>

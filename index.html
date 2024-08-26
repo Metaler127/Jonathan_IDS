@@ -19,11 +19,13 @@
       const myCanvas = document.getElementById("myCanvas");
       const ctx = myCanvas.getContext("2d");
       var figura = 1;
+      var presionado = 2;
 
       document
         .getElementById("myCanvas")
         .addEventListener("mousedown", function (e) {
-          console.log(figura);
+          presionado = 1;
+
           if (figura == 1) {
             ctx.beginPath();
             ctx.arc(e.x, e.y, 70, 0, 2 * Math.PI);
@@ -32,6 +34,12 @@
           } else if (figura == 2) {
             ctx.fillRect(e.x - 50, e.y - 50, 100, 100);
           }
+        });
+
+        document
+        .getElementById("myCanvas")
+        .addEventListener("mouseup", function (e) {
+          presionado = 2
         });
 
       document
@@ -62,7 +70,9 @@
         document
         .getElementById("myCanvas")
         .addEventListener("mousemove", function (e) {
-          ctx.fillRect(e.x - 4, e.y - 4, 8, 8);
+          if (presionado == 1) {
+            ctx.fillRect(e.x - 4, e.y - 4, 8, 8);
+          }
         });
     </script>
   </body>

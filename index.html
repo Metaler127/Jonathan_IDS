@@ -87,18 +87,39 @@
           
           ctx.fillStyle= "white";
           ctx.fillRect(0, 0, 600, 500);
-          ctx.fillStyle = "blue";
+          function getRandomColor() {
+            var trans = "0.5";
+            var color = "rgba(";
+            for (var i = 0; i < 3; i++) {
+              color += Math.floor(Math.random() * 255) + ",";
+            }
+            color += trans + ")";
+            return color;
+          }
+          ctx.fillStyle = getRandomColor();
           ctx.fillRect(x, y, 50, 50);
 
 
           if (event.key == "a" || event.key == "A") {
             x -= 5;
+            if (x == -25) {
+              x = 600
+            }
           }else if (event.key == "d" || event.key == "D"){
             x += 5;
+            if (x == 600) {
+              x = 0
+            }
           }else if (event.key == "s" || event.key == "S"){
             y += 5;
+            if (y == 500) {
+              y = 0
+            }
           }else if (event.key == "w" || event.key == "W"){
             y -= 5;
+            if (y == -25) {
+              y = 500
+            }
           }
         });
 

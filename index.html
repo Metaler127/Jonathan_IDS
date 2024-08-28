@@ -21,6 +21,7 @@
 
       var x = 40;
       var y = 40;
+      var direction = '';
 
       /*var figura = 1;
       var presionado = 2;
@@ -82,9 +83,66 @@
         
 
         document
-        .addEventListener("keydown", (event) => {
-          console.log(event.key)
-          
+        .addEventListener("keydown", function(e){
+          switch (e.key) {
+            case "a":{
+              direction = "izquierda"
+              break;
+            }
+            case "d":{
+              direction = "derecha"
+              break
+            }
+            case "w":{
+              direction = "arriba"
+              break
+            }
+            case "s":{
+              direction = "abajo"
+              break
+            }
+            default:
+              break;
+          }
+        });
+
+        function update(){
+
+          switch (direction) {
+            case "izquierda":{
+              x -= 10;
+              if (x == -25) {
+                x = 600
+              }
+              break;
+            }
+            case "derecha":{
+                x += 10;
+              if (x == 600) {
+                x = 0
+              }
+              break;
+            }
+            case "abajo":{
+              y += 10;
+              if (y == 500) {
+                y = 0
+              }
+              break;
+            }
+            case "arriba":{
+              y -= 10;
+            if (y == -25) {
+              y = 500
+            }
+              break;
+            }
+            default:
+              break;
+          }
+        }
+
+        function paint() {
           ctx.fillStyle= "white";
           ctx.fillRect(0, 0, 600, 500);
           function getRandomColor() {
@@ -98,31 +156,11 @@
           }
           ctx.fillStyle = getRandomColor();
           ctx.fillRect(x, y, 50, 50);
+          update();
+          requestAnimationFrame(paint);
+        }
 
-
-          if (event.key == "a" || event.key == "A") {
-            x -= 5;
-            if (x == -25) {
-              x = 600
-            }
-          }else if (event.key == "d" || event.key == "D"){
-            x += 5;
-            if (x == 600) {
-              x = 0
-            }
-          }else if (event.key == "s" || event.key == "S"){
-            y += 5;
-            if (y == 500) {
-              y = 0
-            }
-          }else if (event.key == "w" || event.key == "W"){
-            y -= 5;
-            if (y == -25) {
-              y = 500
-            }
-          }
-        });
-
+        requestAnimationFrame(paint);
     </script>
   </body>
 </html>

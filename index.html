@@ -22,6 +22,7 @@
       var x = 40;
       var y = 40;
       var direction = '';
+      var speed = 5;
 
       /*var figura = 1;
       var presionado = 2;
@@ -84,8 +85,9 @@
 
         document
         .addEventListener("keydown", function(e){
+          console.log(e.key)
           switch (e.key) {
-            case "a":{
+            case "a" || "A":{
               direction = "izquierda"
               break;
             }
@@ -101,6 +103,10 @@
               direction = "abajo"
               break
             }
+            case "e":{
+              speed += 2;
+              break;
+            }
             default:
               break;
           }
@@ -110,28 +116,28 @@
 
           switch (direction) {
             case "izquierda":{
-              x -= 10;
+              x -= speed;
               if (x == -25) {
                 x = 600
               }
               break;
             }
             case "derecha":{
-                x += 10;
+                x += speed;
               if (x == 600) {
                 x = 0
               }
               break;
             }
             case "abajo":{
-              y += 10;
+              y += speed;
               if (y == 500) {
                 y = 0
               }
               break;
             }
             case "arriba":{
-              y -= 10;
+              y -= speed;
             if (y == -25) {
               y = 500
             }
@@ -140,35 +146,37 @@
             default:
               break;
           }
+          console.log(x, y)
         }
 
         function paint() {
           ctx.fillStyle= "white";
           ctx.fillRect(0, 0, 600, 500);
-          function getRandomColor() {
-            var trans = "0.5";
-            var color = "rgba(";
-            for (var i = 0; i < 3; i++) {
-              color += Math.floor(Math.random() * 255) + ",";
-            }
-            color += trans + ")";
-            return color;
-          }
           ctx.fillStyle = getRandomColor();
           ctx.fillRect(x, y, 50, 50);
+          ctx.font = "italic bold 20px arial,serif";
+          ctx.fillText("Velocidad: " + speed,0,30)
           update();
           requestAnimationFrame(paint);
         }
 
         requestAnimationFrame(paint);
-
+        function getRandomColor() {
+          var trans = "0.5";
+          var color = "rgba(";
+          for (var i = 0; i < 3; i++) {
+            color += Math.floor(Math.random() * 255) + ",";
+          }
+          color += trans + ")";
+          return color;
+        }
         window.requestAnimationFrame = (function () {
           return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
 
           function (callback) {
               window.setTimeout(callback, 17);
           };
-          
+
         }());
     </script>
   </body>

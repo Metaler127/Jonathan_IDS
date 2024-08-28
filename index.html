@@ -85,7 +85,6 @@
 
         document
         .addEventListener("keydown", function(e){
-          console.log(e.key)
           switch (e.key) {
             case "a" || "A":{
               direction = "izquierda"
@@ -117,28 +116,28 @@
           switch (direction) {
             case "izquierda":{
               x -= speed;
-              if (x == -25) {
+              if (x <= -25) {
                 x = 600
               }
               break;
             }
             case "derecha":{
                 x += speed;
-              if (x == 600) {
+              if (x >= 600) {
                 x = 0
               }
               break;
             }
             case "abajo":{
               y += speed;
-              if (y == 500) {
+              if (y >= 500) {
                 y = 0
               }
               break;
             }
             case "arriba":{
               y -= speed;
-            if (y == -25) {
+            if (y <= -25) {
               y = 500
             }
               break;
@@ -146,7 +145,6 @@
             default:
               break;
           }
-          console.log(x, y)
         }
 
         function paint() {
@@ -155,7 +153,8 @@
           ctx.fillStyle = getRandomColor();
           ctx.fillRect(x, y, 50, 50);
           ctx.font = "italic bold 20px arial,serif";
-          ctx.fillText("Velocidad: " + speed,0,30)
+          ctx.fillStyle = "black"
+          ctx.fillText("Velocidad: " + speed,20,30)
           update();
           requestAnimationFrame(paint);
         }
